@@ -61,7 +61,8 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             modelBuilder.Entity<Book>()
                 .HasData(
-                    new Book { BookID = 100, Description = "Wow such doge", ISBN_10 = "101212", ISBN_13 = "1292192", Title = "Doge", Price = 102M }
+                    new Book { BookID = 100, Description = "Wow such doge", ISBN_10 = "101212", ISBN_13 = "1292192", Title = "Doge", Price = 102M },
+                    new Book { BookID = 101, Description = "Testing2", ISBN_10="12121", ISBN_13="4444212", Title="Test2", Price=29M}
                 );
 
             modelBuilder.Entity<BookAuthor>()
