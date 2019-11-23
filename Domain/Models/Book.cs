@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bookBank.API.Domain
+namespace bookBank.API.Domain.Models
 {
     public class Book
     {
@@ -13,5 +13,10 @@ namespace bookBank.API.Domain
         public decimal Price { get; set; }
         public string ISBN_10 { get; set; }
         public string ISBN_13 { get; set; }
+
+        public IList<BookPublisher> BookPublishers { get; set; }
+        public IList<BookAuthor> BookAuthors { get; set; }
+        public IList<BookBundle> BookBundles { get; set; }
+        public IList<BookCategory> BookCategories { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace bookBank.API.Domain
+namespace bookBank.API.Domain.Models
 {
     public enum Genre
     {
