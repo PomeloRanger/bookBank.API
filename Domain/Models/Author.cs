@@ -9,6 +9,6 @@ namespace bookBank.API.Domain.Models
     {
         public int AuthorID { get; set; }
         public string AuthorName { get; set; }
-        public IList<BookAuthor> BookAuthors { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
     }
 }

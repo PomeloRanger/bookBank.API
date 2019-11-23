@@ -28,11 +28,52 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             modelBuilder.Entity<BookAuthor>().HasKey(ba => new { ba.BookID, ba.AuthorID });
 
+            modelBuilder.Entity<BookAuthor>()
+                .HasOne(ba => ba.Author)
+                .WithMany(a => a.BookAuthors)
+                .HasForeignKey(ba => ba.AuthorID);
+
+            modelBuilder.Entity<BookAuthor>()
+                .HasOne(ba => ba.Book)
+                .WithMany(b => b.BookAuthors)
+                .HasForeignKey(ba => ba.BookID);
+
             modelBuilder.Entity<BookBundle>().HasKey(bb => new { bb.BookID, bb.BundleID });
+
+            modelBuilder.Entity<BookBundle>()
+                .HasOne(bb => bb.Bundle)
+                .WithMany(bundle => bundle.BookBundles)
+                .HasForeignKey(bb => bb.BundleID);
+
+            modelBuilder.Entity<BookBundle>()
+                .HasOne(bb => bb.Book)
+                .WithMany(book => book.BookBundles)
+                .HasForeignKey(bb => bb.BookID);
+
 
             modelBuilder.Entity<BookCategory>().HasKey(bc => new { bc.BookID, bc.CategoryID });
 
+            modelBuilder.Entity<BookCategory>()
+                .HasOne(bc => bc.Category)
+                .WithMany(c => c.BookCategories)
+                .HasForeignKey(bc => bc.CategoryID);
+
+            modelBuilder.Entity<BookCategory>()
+                .HasOne(bc => bc.Book)
+                .WithMany(b => b.BookCategories)
+                .HasForeignKey(bc => bc.BookID);
+
             modelBuilder.Entity<BookPublisher>().HasKey(bp => new { bp.BookID, bp.PublisherID });
+
+            modelBuilder.Entity<BookPublisher>()
+                .HasOne(bp => bp.Publisher)
+                .WithMany(p => p.BookPublishers)
+                .HasForeignKey(bp => bp.PublisherID);
+
+            modelBuilder.Entity<BookPublisher>()
+                .HasOne(bp => bp.Book)
+                .WithMany(b => b.BookPublishers)
+                .HasForeignKey(bp => bp.BookID);
 
             modelBuilder.Entity<Author>()
                 .HasData

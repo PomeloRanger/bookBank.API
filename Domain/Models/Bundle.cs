@@ -9,6 +9,6 @@ namespace bookBank.API.Domain.Models
     {
         public int BundleID { get; set; }
         public decimal Price { get; set; }
-        public IList<BookBundle> BookBundles { get; set; }
+        public ICollection<BookBundle> BookBundles { get; set; } = new List<BookBundle>();
     }
 }

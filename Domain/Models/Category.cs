@@ -9,6 +9,6 @@ namespace bookBank.API.Domain.Models
     {
         public int CategoryID { get; set; }
         public Genre Genre { get; set; }
-        public IList<BookCategory> BookCategories { get; set; }
+        public ICollection<BookCategory> BookCategories { get; set; } = new List<BookCategory>();
     }
 }

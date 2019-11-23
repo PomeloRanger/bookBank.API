@@ -14,9 +14,9 @@ namespace bookBank.API.Domain.Models
         public string ISBN_10 { get; set; }
         public string ISBN_13 { get; set; }
 
-        public IList<BookPublisher> BookPublishers { get; set; }
-        public IList<BookAuthor> BookAuthors { get; set; }
-        public IList<BookBundle> BookBundles { get; set; }
-        public IList<BookCategory> BookCategories { get; set; }
+        public ICollection<BookPublisher> BookPublishers { get; set; } = new List<BookPublisher>();
+        public ICollection<BookAuthor> BookAuthors { get; set; } = new List<BookAuthor>();
+        public ICollection<BookBundle> BookBundles { get; set; } = new List<BookBundle>();
+        public ICollection<BookCategory> BookCategories { get; set; } = new List<BookCategory>();
     }
 }
