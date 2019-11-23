@@ -25,7 +25,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<BookAuthor>().HasKey(ba => new { ba.BookID, ba.AuthorID });
 
@@ -35,37 +34,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             modelBuilder.Entity<BookPublisher>().HasKey(bp => new { bp.BookID, bp.PublisherID });
 
-            var Categories = new[]
-            {
-                new Category { CategoryID=103, Genre = Genre.Art},
-                new Category { CategoryID=104, Genre = Genre.Contemporary}
-            };
-
-            var Books = new[]
-            {
-                new Book{BookID = 101, Description = "Test3", ISBN_10="9821", ISBN_13 = "12821", Title = "Doge", Price = 152M },
-                new Book{BookID = 102, Description = "Test2", ISBN_10 = "101212", ISBN_13 = "1292192", Title = "Doge", Price = 102M }
-            };
-
-            var Author = new[]
-            {
-                new Author { AuthorID = 100, AuthorName="Jonas" },
-                new Author { AuthorID = 101, AuthorName="Timothy"}
-            };
-
-            var BookAuthor = new[]
-            {
-                new BookAuthor { AuthorID=100, BookID=101},
-                new BookAuthor { AuthorID= 101, BookID=102}
-            };
-
-            var BookCategory = new[]
-            {
-                new BookCategory{ BookID = 101, CategoryID= 103},
-                new BookCategory{ BookID = 102, CategoryID = 104}
-            };
-
-            /*
             modelBuilder.Entity<Author>()
                 .HasData
                 (
@@ -95,14 +63,14 @@ namespace bookBank.API.Domain.Persistence.Contexts
                 .HasData(
                     new Book { BookID = 100, Description = "Wow such doge", ISBN_10 = "101212", ISBN_13 = "1292192", Title = "Doge", Price = 102M }
                 );
-            */
 
+            modelBuilder.Entity<BookAuthor>()
+                .HasData(
+                    new BookAuthor { AuthorID = 100, BookID = 100 },
+                    new BookAuthor { AuthorID = 101, BookID = 101}
+                );
 
-            modelBuilder.Entity<Book>().HasData(Books[0], Books[1]);
-            modelBuilder.Entity<Category>().HasData(Categories[0], Categories[1]);
-            modelBuilder.Entity<Author>().HasData(Author[0], Author[1]);
-            modelBuilder.Entity<BookCategory>().HasData(BookCategory[0], BookCategory[1]);
-            modelBuilder.Entity<BookAuthor>().HasData(BookAuthor[0], BookAuthor[1]);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
