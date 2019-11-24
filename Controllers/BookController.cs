@@ -9,11 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace bookBank.API.Controllers
 {
     [Route("api/[Controller]")]
-    public class BooksController : Controller
+    public class BookController : ControllerBase
     {
         private readonly IBookService bookService;
 
-        public BooksController(IBookService bookService)
+        public BookController(IBookService bookService)
         {
             this.bookService = bookService;
         }
