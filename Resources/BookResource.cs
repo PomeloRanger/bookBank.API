@@ -14,5 +14,6 @@ namespace bookBank.API.Resources
         public string ISBN_10 { get; set; }
         public string ISBN_13 { get; set; }
         public PublisherResource Publisher { get; set; }
+        public AuthorResource Author { get; set; }
     }
 }

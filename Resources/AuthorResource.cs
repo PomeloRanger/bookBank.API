@@ -9,5 +9,6 @@ namespace bookBank.API.Resources
     {
         public int AuthorID { get; set; }
         public string AuthorName { get; set; }
+        public BookResource Book { get; set; }
     }
 }
