@@ -14,6 +14,7 @@ namespace bookBank.API.Mapping
         {
             CreateMap<Publisher, PublisherResource>();
             CreateMap<Author, AuthorResource>();
+            CreateMap<Book, BookResource>();
         }
     }
 }

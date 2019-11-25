@@ -11,14 +11,14 @@ namespace bookBank.API.Domain.Persistence.Repositories
 {
     public class BookRepository : BaseRepository, IBookRepository
     {
-        public BookRepository(AppDbContext context) :base(context)
+        public BookRepository(AppDbContext context) : base(context)
         {
 
         }
 
         public async Task<IEnumerable<Book>> ListAsync()
         {
-            return await this.context.Books.ToListAsync();
+            return await this.context.Books.Include(p=>p.BookPublishers).ToListAsync();
         }
     }
 }
