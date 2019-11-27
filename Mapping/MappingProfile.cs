@@ -12,9 +12,12 @@ namespace bookBank.API.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<PublisherResource, Publisher>();
             CreateMap<Publisher, PublisherResource>();
             CreateMap<Book, BookResource>()
-                .ForMember(dto => dto.Publishers, opts => opts.MapFrom(x=> x.BookPublishers.Select(y => y.Publisher)));
+                .ForMember(br => br.Publishers, opts => opts
+                .MapFrom(b=> b.BookPublishers
+                .Select(bp => bp.Publisher)));
             CreateMap<BookPublisher, PublisherResource>();
         }
     }
