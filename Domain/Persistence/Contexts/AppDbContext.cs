@@ -28,7 +28,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             modelBuilder.Entity<BookAuthor>().HasKey(ba => new { ba.BookID, ba.AuthorID });
 
-            /*
             modelBuilder.Entity<BookAuthor>()
                 .HasOne(ba => ba.Author)
                 .WithMany(a => a.BookAuthors)
@@ -38,7 +37,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
                 .HasOne(ba => ba.Book)
                 .WithMany(b => b.BookAuthors)
                 .HasForeignKey(ba => ba.BookID);
-            */
 
             modelBuilder.Entity<BookBundle>().HasKey(bb => new { bb.BookID, bb.BundleID });
 
@@ -141,14 +139,15 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             var BookPublishers = new[]
             {
-                new BookPublisher{ PublisherID=101, BookID=101}
+                new BookPublisher{ PublisherID=101, BookID=101},
+                new BookPublisher{ PublisherID=102, BookID=102}
             };
 
             modelBuilder.Entity<Book>().HasData(Books[0], Books[1]);
             modelBuilder.Entity<Author>().HasData(Authors[0]);
             modelBuilder.Entity<Publisher>().HasData(Publishers[0], Publishers[1]);
             modelBuilder.Entity<BookAuthor>().HasData(BookAuthors[0], BookAuthors[1]);
-            modelBuilder.Entity<BookPublisher>().HasData(BookPublishers[0]);
+            modelBuilder.Entity<BookPublisher>().HasData(BookPublishers[0], BookPublishers[1]);
 
             base.OnModelCreating(modelBuilder);
         }

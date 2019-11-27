@@ -9,6 +9,5 @@ namespace bookBank.API.Resources
     {
         public int PublisherID { get; set; }
         public string PublisherName { get; set; }
-        public BookResource Book { get; set; }
     }
 }

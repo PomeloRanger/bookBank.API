@@ -30,16 +30,13 @@ namespace bookBank.API
             services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddDbContext<AppDbContext>(options => {
-                options.UseInMemoryDatabase("bookBank-API-inMemory");
+                options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Xavier\Documents\bookBank.mdf;Integrated Security=True;Connect Timeout=30");
             });
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();
 
             services.AddScoped<IPublisherRepository, PublisherRepository>();
             services.AddScoped<IPublisherService, PublisherService>();
-
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<IAuthorService, AuthorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
