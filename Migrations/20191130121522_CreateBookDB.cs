@@ -2,7 +2,7 @@
 
 namespace bookBank.API.Migrations
 {
-    public partial class CreateBookBankDB : Migration
+    public partial class CreateBookDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,6 +28,7 @@ namespace bookBank.API.Migrations
                     Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: true),
                     ISBN_10 = table.Column<string>(nullable: true),
                     ISBN_13 = table.Column<string>(nullable: true)
                 },
@@ -178,12 +179,17 @@ namespace bookBank.API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "BookID", "Description", "ISBN_10", "ISBN_13", "Price", "Title" },
+                columns: new[] { "BookID", "Description", "ISBN_10", "ISBN_13", "ImageUrl", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 101, "Tom", "21412", "19281", 130m, "Tom" },
-                    { 102, "Jerry", "12121", "92121", 140m, "Jerry" }
+                    { 101, "Tom", "21412", "19281", "/Images/Ben.jpg", 130m, "Tom" },
+                    { 102, "Jerry", "12121", "92121", "/Images/Tom.jpg", 140m, "Jerry" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "Genre" },
+                values: new object[] { 101, 1 });
 
             migrationBuilder.InsertData(
                 table: "Publishers",
@@ -202,6 +208,11 @@ namespace bookBank.API.Migrations
                     { 101, 101 },
                     { 102, 101 }
                 });
+
+            migrationBuilder.InsertData(
+                table: "BookCategories",
+                columns: new[] { "BookID", "CategoryID" },
+                values: new object[] { 101, 101 });
 
             migrationBuilder.InsertData(
                 table: "BookPublishers",

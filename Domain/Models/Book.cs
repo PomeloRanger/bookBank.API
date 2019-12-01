@@ -11,6 +11,7 @@ namespace bookBank.API.Domain.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public string ImageUrl { get; set; }
         public string ISBN_10 { get; set; }
         public string ISBN_13 { get; set; }
 

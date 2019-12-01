@@ -21,6 +21,8 @@ namespace bookBank.API.Domain.Persistence.Repositories
             return await this.context.Books
                 .Include(p => p.BookPublishers)
                     .ThenInclude(ba => ba.Publisher)
+                .Include(p => p.BookCategories)
+                    .ThenInclude(bc => bc.Category)
                 .ToListAsync();
         }
     }

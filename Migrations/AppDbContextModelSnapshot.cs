@@ -56,6 +56,9 @@ namespace bookBank.API.Migrations
                     b.Property<string>("ISBN_13")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -73,6 +76,7 @@ namespace bookBank.API.Migrations
                             Description = "Tom",
                             ISBN_10 = "21412",
                             ISBN_13 = "19281",
+                            ImageUrl = "/Images/Ben.jpg",
                             Price = 130m,
                             Title = "Tom"
                         },
@@ -82,6 +86,7 @@ namespace bookBank.API.Migrations
                             Description = "Jerry",
                             ISBN_10 = "12121",
                             ISBN_13 = "92121",
+                            ImageUrl = "/Images/Tom.jpg",
                             Price = 140m,
                             Title = "Jerry"
                         });
@@ -142,6 +147,13 @@ namespace bookBank.API.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("BookCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            BookID = 101,
+                            CategoryID = 101
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.BookPublisher", b =>
@@ -199,6 +211,13 @@ namespace bookBank.API.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 101,
+                            Genre = 1
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.Publisher", b =>
