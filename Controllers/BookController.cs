@@ -25,8 +25,8 @@ namespace bookBank.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<BookResource>> GetAllAsync()
         {
-            var Book = await this.bookService.ListAsync();
-            var resources = this.mapper.Map<IEnumerable<Book>, IEnumerable<BookResource>>(Book);
+            var books = await this.bookService.ListAsync();
+            var resources = this.mapper.Map<IEnumerable<Book>, IEnumerable<BookResource>>(books);
             return resources;
         }
     }

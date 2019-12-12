@@ -14,15 +14,20 @@ namespace bookBank.API.Mapping
         public MappingProfile()
         {
             CreateMap<Publisher, PublisherResource>();
+
             CreateMap<Book, BookResource>()
                 .ForMember(br => br.Publishers, opts => opts
-                    .MapFrom(b => b.BookPublishers
-                    .Select(bp => bp.Publisher)))
+                    .MapFrom(b => b.BookPublishers.Select(bp => bp.Publisher)))
                 .ForMember(br => br.Categories, opts => opts
-                    .MapFrom(b => b.BookCategories
-                    .Select(bp => bp.Category)));
-            CreateMap<Category, CategoryResource>().ForMember(src => src.Genre,
-                                                              opts => opts.MapFrom(src => src.Genre.ToDescriptionString()));
+                    .MapFrom(b => b.BookCategories.Select(bp => bp.Category)));
+
+            CreateMap<Category, CategoryResource>()
+                .ForMember(src => src.Genre, opts => opts
+                   .MapFrom(src => src.Genre.ToDescriptionString()));
+
+            CreateMap<Bundle, BundleResource>()
+                .ForMember(br => br.Books, opts => opts
+                    .MapFrom(b => b.BookBundles.Select(bb => bb.Bundle)));
         }
     }
 }

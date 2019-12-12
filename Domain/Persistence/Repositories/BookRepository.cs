@@ -19,9 +19,9 @@ namespace bookBank.API.Domain.Persistence.Repositories
         public async Task<IEnumerable<Book>> ListAsync()
         {
             return await this.context.Books
-                .Include(p => p.BookPublishers)
+                .Include(b => b.BookPublishers)
                     .ThenInclude(ba => ba.Publisher)
-                .Include(p => p.BookCategories)
+                .Include(b => b.BookCategories)
                     .ThenInclude(bc => bc.Category)
                 .ToListAsync();
         }

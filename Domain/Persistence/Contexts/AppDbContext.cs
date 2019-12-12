@@ -106,12 +106,23 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             var Categorys= new[]
             {
-                new Category{ CategoryID=101, Genre=Genre.Adventure}
+                new Category{ CategoryID=101, Genre=Genre.Contemporary}
             };
 
             var BookCategories = new[]
             {
                 new BookCategory{ BookID=101, CategoryID=101}
+            };
+
+            var Bundles = new[]
+            {
+                new Bundle{ BundleID=101, Price=50},
+            };
+
+            var BookBundles = new[]
+            {
+                new BookBundle{ BookID=101, BundleID=101},
+                new BookBundle { BookID=102, BundleID=101}
             };
 
             modelBuilder.Entity<Book>().HasData(Books[0], Books[1]);
@@ -121,6 +132,8 @@ namespace bookBank.API.Domain.Persistence.Contexts
             modelBuilder.Entity<BookPublisher>().HasData(BookPublishers[0], BookPublishers[1]);
             modelBuilder.Entity<Category>().HasData(Categorys[0]);
             modelBuilder.Entity<BookCategory>().HasData(BookCategories[0]);
+            modelBuilder.Entity<Bundle>().HasData(Bundles[0]);
+            modelBuilder.Entity<BookBundle>().HasData(BookBundles[0], BookBundles[1]);
 
             base.OnModelCreating(modelBuilder);
         }

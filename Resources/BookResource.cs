@@ -1,6 +1,7 @@
 ﻿using bookBank.API.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace bookBank.API.Resources
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         public string ISBN_10 { get; set; }
         public string ISBN_13 { get; set; }

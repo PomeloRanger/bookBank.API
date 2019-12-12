@@ -9,12 +9,12 @@ namespace bookBank.API.Extensions
 {
     public static class EnumExtensions
     {
-        public static string ToDescriptionString<TEnum>(this TEnum @enum)
+        public static string ToDescriptionString<TEnum>(this TEnum _enum)
         {
-            FieldInfo info = @enum.GetType().GetField(@enum.ToString());
+            FieldInfo info = _enum.GetType().GetField(_enum.ToString());
             var attributes = (DescriptionAttribute[])info.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
-            return attributes?[0].Description ?? @enum.ToString();
+            return attributes?[0].Description ?? _enum.ToString();
         }
     }
 }

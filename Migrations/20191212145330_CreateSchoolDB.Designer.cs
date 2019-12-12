@@ -9,8 +9,8 @@ using bookBank.API.Domain.Persistence.Contexts;
 namespace bookBank.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191130121522_CreateBookDB")]
-    partial class CreateBookDB
+    [Migration("20191212145330_CreateSchoolDB")]
+    partial class CreateSchoolDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -134,6 +134,18 @@ namespace bookBank.API.Migrations
                     b.HasIndex("BundleID");
 
                     b.ToTable("BookBundles");
+
+                    b.HasData(
+                        new
+                        {
+                            BookID = 101,
+                            BundleID = 101
+                        },
+                        new
+                        {
+                            BookID = 102,
+                            BundleID = 101
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.BookCategory", b =>
@@ -198,6 +210,13 @@ namespace bookBank.API.Migrations
                     b.HasKey("BundleID");
 
                     b.ToTable("Bundles");
+
+                    b.HasData(
+                        new
+                        {
+                            BundleID = 101,
+                            Price = 50m
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.Category", b =>
@@ -218,7 +237,7 @@ namespace bookBank.API.Migrations
                         new
                         {
                             CategoryID = 101,
-                            Genre = 1
+                            Genre = 3
                         });
                 });
 

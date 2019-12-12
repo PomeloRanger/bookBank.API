@@ -132,6 +132,18 @@ namespace bookBank.API.Migrations
                     b.HasIndex("BundleID");
 
                     b.ToTable("BookBundles");
+
+                    b.HasData(
+                        new
+                        {
+                            BookID = 101,
+                            BundleID = 101
+                        },
+                        new
+                        {
+                            BookID = 102,
+                            BundleID = 101
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.BookCategory", b =>
@@ -196,6 +208,13 @@ namespace bookBank.API.Migrations
                     b.HasKey("BundleID");
 
                     b.ToTable("Bundles");
+
+                    b.HasData(
+                        new
+                        {
+                            BundleID = 101,
+                            Price = 50m
+                        });
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.Category", b =>
@@ -216,7 +235,7 @@ namespace bookBank.API.Migrations
                         new
                         {
                             CategoryID = 101,
-                            Genre = 1
+                            Genre = 3
                         });
                 });
 

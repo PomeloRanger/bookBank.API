@@ -9,6 +9,6 @@ namespace bookBank.API.Resources
     public class CategoryResource
     {
         public int CategoryID { get; set; }
-        public Genre Genre { get; set; }
+        public string Genre { get; set; }
     }
 }

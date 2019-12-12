@@ -2,7 +2,7 @@
 
 namespace bookBank.API.Migrations
 {
-    public partial class CreateBookDB : Migration
+    public partial class CreateSchoolDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -187,9 +187,14 @@ namespace bookBank.API.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Bundles",
+                columns: new[] { "BundleID", "Price" },
+                values: new object[] { 101, 50m });
+
+            migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "CategoryID", "Genre" },
-                values: new object[] { 101, 1 });
+                values: new object[] { 101, 3 });
 
             migrationBuilder.InsertData(
                 table: "Publishers",
@@ -203,6 +208,15 @@ namespace bookBank.API.Migrations
             migrationBuilder.InsertData(
                 table: "BookAuthors",
                 columns: new[] { "BookID", "AuthorID" },
+                values: new object[,]
+                {
+                    { 101, 101 },
+                    { 102, 101 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "BookBundles",
+                columns: new[] { "BookID", "BundleID" },
                 values: new object[,]
                 {
                     { 101, 101 },
