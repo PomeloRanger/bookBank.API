@@ -19,7 +19,7 @@ namespace bookBank.API.Mapping
                 .ForMember(br => br.Publishers, opts => opts
                     .MapFrom(b => b.BookPublishers.Select(bp => bp.Publisher)))
                 .ForMember(br => br.Categories, opts => opts
-                    .MapFrom(b => b.BookCategories.Select(bp => bp.Category)));
+                    .MapFrom(b => b.BookCategories.Select(bc => bc.Category)));
 
             CreateMap<Category, CategoryResource>()
                 .ForMember(src => src.Genre, opts => opts
@@ -27,7 +27,7 @@ namespace bookBank.API.Mapping
 
             CreateMap<Bundle, BundleResource>()
                 .ForMember(br => br.Books, opts => opts
-                    .MapFrom(b => b.BookBundles.Select(bb => bb.Bundle)));
+                    .MapFrom(b => b.BookBundles.Select(bb => bb.Book)));
         }
     }
 }

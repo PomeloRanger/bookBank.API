@@ -9,6 +9,6 @@ namespace bookBank.API.Domain.Models
     {
         public int PublisherID { get; set; }
         public string PublisherName { get; set; }
-        public ICollection<BookPublisher> BookPublishers { get; set; } = new List<BookPublisher>();
+        public ICollection<BookPublisher> BookPublishers { get; set; }
     }
 }
