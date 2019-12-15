@@ -9,8 +9,8 @@ using bookBank.API.Domain.Persistence.Contexts;
 namespace bookBank.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20191212145330_CreateSchoolDB")]
-    partial class CreateSchoolDB
+    [Migration("20191215071923_CreateBookDB")]
+    partial class CreateBookDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,22 +75,22 @@ namespace bookBank.API.Migrations
                         new
                         {
                             BookID = 101,
-                            Description = "Tom",
-                            ISBN_10 = "21412",
-                            ISBN_13 = "19281",
-                            ImageUrl = "/Images/Ben.jpg",
-                            Price = 130m,
-                            Title = "Tom"
+                            Description = "FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.",
+                            ISBN_10 = "1538761602",
+                            ISBN_13 = "978-1538761601",
+                            ImageUrl = "https://i.imgur.com/1mSWvvS.jpg",
+                            Price = 14.98m,
+                            Title = "A Minute to Midnight (An Atlee Pine Thriller (2))"
                         },
                         new
                         {
                             BookID = 102,
-                            Description = "Jerry",
-                            ISBN_10 = "12121",
-                            ISBN_13 = "92121",
-                            ImageUrl = "/Images/Tom.jpg",
-                            Price = 140m,
-                            Title = "Jerry"
+                            Description = "Reacher is on a Greyhound bus, minding his own business, with no particular place to go, and all the time in the world to get there. Then he steps off the bus to help an old man who is obviously just a victim waiting to happen. But you know what they say about good deeds. Now Reacher wants to make it right.",
+                            ISBN_10 = "0399593543",
+                            ISBN_13 = "978-0399593543",
+                            ImageUrl = "https://i.imgur.com/ELBaTAe.jpg",
+                            Price = 14.99m,
+                            Title = "Blue Moon: A Jack Reacher Novel"
                         });
                 });
 

@@ -2,7 +2,7 @@
 
 namespace bookBank.API.Migrations
 {
-    public partial class CreateSchoolDB : Migration
+    public partial class CreateBookDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -182,8 +182,8 @@ namespace bookBank.API.Migrations
                 columns: new[] { "BookID", "Description", "ISBN_10", "ISBN_13", "ImageUrl", "Price", "Title" },
                 values: new object[,]
                 {
-                    { 101, "Tom", "21412", "19281", "/Images/Ben.jpg", 130m, "Tom" },
-                    { 102, "Jerry", "12121", "92121", "/Images/Tom.jpg", 140m, "Jerry" }
+                    { 101, "FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.", "1538761602", "978-1538761601", "https://i.imgur.com/1mSWvvS.jpg", 14.98m, "A Minute to Midnight (An Atlee Pine Thriller (2))" },
+                    { 102, "Reacher is on a Greyhound bus, minding his own business, with no particular place to go, and all the time in the world to get there. Then he steps off the bus to help an old man who is obviously just a victim waiting to happen. But you know what they say about good deeds. Now Reacher wants to make it right.", "0399593543", "978-0399593543", "https://i.imgur.com/ELBaTAe.jpg", 14.99m, "Blue Moon: A Jack Reacher Novel" }
                 });
 
             migrationBuilder.InsertData(

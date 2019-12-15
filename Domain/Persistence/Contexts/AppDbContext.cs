@@ -25,7 +25,7 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            //Composite Key
             modelBuilder.Entity<BookAuthor>().HasKey(ba => new { ba.BookID, ba.AuthorID });
 
             modelBuilder.Entity<BookAuthor>()
@@ -77,8 +77,8 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             var Books = new[]
             {
-                new Book{ BookID=101, Description="Tom", ImageUrl="/Images/Ben.jpg", Price=130M, ISBN_10="21412", ISBN_13="19281", Title="Tom"  },
-                new Book{ BookID=102, Description="Jerry", ImageUrl="/Images/Tom.jpg" ,Price=140M, ISBN_10="12121", ISBN_13="92121", Title="Jerry" }
+                new Book{ BookID=101, Description="FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.", ImageUrl="https://i.imgur.com/1mSWvvS.jpg", Price=14.98M, ISBN_10="1538761602", ISBN_13="978-1538761601", Title="A Minute to Midnight (An Atlee Pine Thriller (2))"  },
+                new Book{ BookID=102, Description="Reacher is on a Greyhound bus, minding his own business, with no particular place to go, and all the time in the world to get there. Then he steps off the bus to help an old man who is obviously just a victim waiting to happen. But you know what they say about good deeds. Now Reacher wants to make it right.", ImageUrl="https://i.imgur.com/ELBaTAe.jpg" ,Price=14.99M, ISBN_10="0399593543", ISBN_13="978-0399593543", Title="Blue Moon: A Jack Reacher Novel" }
             };
 
             var Authors = new[]
@@ -106,7 +106,8 @@ namespace bookBank.API.Domain.Persistence.Contexts
 
             var Categorys= new[]
             {
-                new Category{ CategoryID=101, Genre=Genre.Contemporary}
+                new Category{ CategoryID=101, Genre=Genre.Contemporary},
+                new Category{ Genre = Genre.Art}
             };
 
             var BookCategories = new[]
@@ -124,6 +125,7 @@ namespace bookBank.API.Domain.Persistence.Contexts
                 new BookBundle{ BookID=101, BundleID=101},
                 new BookBundle { BookID=102, BundleID=101}
             };
+
 
             modelBuilder.Entity<Book>().HasData(Books[0], Books[1]);
             modelBuilder.Entity<Author>().HasData(Authors[0]);
