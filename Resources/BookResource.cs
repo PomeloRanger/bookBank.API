@@ -20,5 +20,6 @@ namespace bookBank.API.Resources
         public string ISBN_13 { get; set; }
         public ICollection<PublisherResource> Publishers { get; set; }
         public ICollection<CategoryResource> Categories { get; set; }
+        public ICollection<AuthorResource> Authors { get; set; }
     }
 }

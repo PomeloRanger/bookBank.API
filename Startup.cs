@@ -35,7 +35,7 @@ namespace bookBank.API
             services.AddAutoMapper(typeof(MappingProfile));
 
             services.AddDbContext<AppDbContext>(options => {
-                options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Xavier\Documents\bookBank.mdf;Integrated Security=True;Connect Timeout=30");
+                options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Users\171296U\Documents\bookBank.mdf;Integrated Security=True;Connect Timeout=30");
             });
             services.AddScoped<IBookRepository, BookRepository>();
             services.AddScoped<IBookService, BookService>();

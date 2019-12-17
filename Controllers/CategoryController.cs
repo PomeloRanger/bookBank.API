@@ -10,12 +10,12 @@ namespace bookBank.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public class CategoryController : ControllerBase
     {
         private readonly ICategoryServices categoryServices;
         private readonly IMapper mapper;
 
-        public CategoriesController(ICategoryServices categoryServices, IMapper mapper)
+        public CategoryController(ICategoryServices categoryServices, IMapper mapper)
         {
             this.categoryServices = categoryServices;
             this.mapper = mapper;

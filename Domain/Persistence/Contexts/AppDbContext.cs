@@ -50,7 +50,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
                 .WithMany(book => book.BookBundles)
                 .HasForeignKey(bb => bb.BookID);
 
-
             modelBuilder.Entity<BookCategory>().HasKey(bc => new { bc.BookID, bc.CategoryID });
 
             modelBuilder.Entity<BookCategory>()
