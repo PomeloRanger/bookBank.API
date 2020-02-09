@@ -33,6 +33,9 @@ namespace bookBank.API.Mapping
             CreateMap<Bundle, BundleResource>()
                 .ForMember(br => br.Books, opts => opts
                     .MapFrom(b => b.BookBundles.Select(bb => bb.Book)));
+
+            CreateMap<Register, User>();
+            CreateMap<User, UserResource>();
         }
     }
 }

@@ -13,6 +13,11 @@ namespace bookBank.API.Domain.Persistence.Contexts
         {
 
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Bundle> Bundles { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -22,7 +27,6 @@ namespace bookBank.API.Domain.Persistence.Contexts
         public DbSet<BookBundle> BookBundles { get; set; }
         public DbSet<BookCategory> BookCategories { get; set; }
         public DbSet<BookPublisher> BookPublishers { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Composite Key
@@ -74,6 +78,34 @@ namespace bookBank.API.Domain.Persistence.Contexts
                 .WithMany(b => b.BookPublishers)
                 .HasForeignKey(bp => bp.BookID);
 
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.Review)
+                .HasForeignKey(r => r.UserID);
+
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Book)
+                .WithMany(b => b.Review)
+                .HasForeignKey(r => r.BookID);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Order)
+                .HasForeignKey(o => o.UserID);
+
+            modelBuilder.Entity<OrderDetails>()
+                .HasOne(od => od.Book)
+                .WithMany(b => b.OrderDetails)
+                .HasForeignKey(od => od.BookID);
+
+
+            modelBuilder.Entity<OrderDetails>()
+                .HasOne(od => od.Order)
+                .WithMany(o => o.OrderDetails)
+                .HasForeignKey(od => od.OrderID);
+
+
+            //Scaffold simulate data
             var Books = new[]
             {
                 new Book{ BookID=101, Description="FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.", ImageUrl="https://i.imgur.com/1mSWvvS.jpg", Price=14.98M, ISBN_10="1538761602", ISBN_13="978-1538761601", Title="A Minute to Midnight (An Atlee Pine Thriller (2))"  },
