@@ -8,7 +8,7 @@ namespace bookBank.API.Domain.Communication
 {
     public class GetUserResponse : BaseResponse
     {
-        public User user;
+        public User user { get; private set; }
         public GetUserResponse(bool success, string message, User user) : base(success, message)
         {
             this.user = user;

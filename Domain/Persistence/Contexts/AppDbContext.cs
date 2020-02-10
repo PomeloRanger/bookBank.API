@@ -108,53 +108,70 @@ namespace bookBank.API.Domain.Persistence.Contexts
             //Scaffold simulate data
             var Books = new[]
             {
-                new Book{ BookID=101, Description="FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.", ImageUrl="https://i.imgur.com/1mSWvvS.jpg", Price=14.98M, ISBN_10="1538761602", ISBN_13="978-1538761601", Title="A Minute to Midnight (An Atlee Pine Thriller (2))"  },
-                new Book{ BookID=102, Description="Reacher is on a Greyhound bus, minding his own business, with no particular place to go, and all the time in the world to get there. Then he steps off the bus to help an old man who is obviously just a victim waiting to happen. But you know what they say about good deeds. Now Reacher wants to make it right.", ImageUrl="https://i.imgur.com/ELBaTAe.jpg" ,Price=14.99M, ISBN_10="0399593543", ISBN_13="978-0399593543", Title="Blue Moon: A Jack Reacher Novel" }
+                new Book{ 
+                    BookID=1, 
+                    Description="Nine-year-old Meena can’t wait to grow up and break free from her parents. But, as the daughter of the only Punjabi family in the mining village of Tollington, her struggle for independence is different from most. Meena wants fishfingers and chips, not chapati and dhal; she wants an English Christmas, not the usual interminable Punjabi festivities – but more than anything, she wants to roam the backyards of working -class Tollington with feisty Anita Rutter and her gang.Blonde, cool, aloof, outrageous and sassy, Anita is everything Meena thinks she wants to be.Meena wheedles her way into Anita’s life, but the arrival of a baby brother, teenage hormones, impending entrance exams for the posh grammar school and a motorcycling rebel without a future threaten to turn Anita’s salad days sour. Anita and Me paints a comic, poignant, compassionate and colourful portrait of village life in the era of flares, power cuts, glam rock, decimalisation and Ted Heath. It is a unique vision of a British childhood in the Seventies, a childhood caught between two cultures, each on the brink of change.", 
+                    ImageUrl="https://i.imgur.com/RwxM72M.jpg", 
+                    Price=14.98M, 
+                    ISBN_10="0006548768", 
+                    ISBN_13="978-0006548768", 
+                    Title="Anita and Me"
+                },
+
+                new Book{ 
+                    BookID=2, 
+                    Description="When the enemy is one of your own, the payback is twice as hard. The Butler brothers are the Kings of the East End, and their motto is 'what goes around, comes around'. In their world, family counts; so when the truth about Vinny's nephew's death comes to light, it rocks the Butlers to the core. One by one, Vinny's friends and family are turning against him. Then, the unimaginable happens - Vinny's little daughter Molly goes missing. She's the one chink of light in all their lives, and the one they'd commit murders to bring back. But is it already too late for that?", 
+                    ImageUrl="https://i.imgur.com/0DK022r.jpg" ,
+                    Price=14.99M, 
+                    ISBN_10="0007435053", 
+                    ISBN_13="978-0007435053", 
+                    Title="Payback" 
+                }
             };
 
             var Authors = new[]
             {
-                new Author{ AuthorID=101, AuthorName = "Timothy"}
+                new Author{ AuthorID=1, AuthorName = "Timothy"}
             };
 
             var BookAuthors = new[]
             {
-                new BookAuthor{ AuthorID=101, BookID=101  },
-                new BookAuthor{ AuthorID=101, BookID=102 }
+                new BookAuthor{ AuthorID=1, BookID=1  },
+                new BookAuthor{ AuthorID=1, BookID=2 }
             };
 
             var Publishers = new[]
             {
-                new Publisher{ PublisherID=101, PublisherName="Jerome"},
-                new Publisher{ PublisherID=102, PublisherName = "Timothy"}
+                new Publisher{ PublisherID=1, PublisherName="Jerome"},
+                new Publisher{ PublisherID=2, PublisherName = "Timothy"}
             };
 
             var BookPublishers = new[]
             {
-                new BookPublisher{ PublisherID=101, BookID=101},
-                new BookPublisher{ PublisherID=102, BookID=102}
+                new BookPublisher{ PublisherID=1, BookID=1},
+                new BookPublisher{ PublisherID=2, BookID=2}
             };
 
             var Categorys= new[]
             {
-                new Category{ CategoryID=101, Genre=Genre.Contemporary},
+                new Category{ CategoryID=1, Genre=Genre.Contemporary},
                 new Category{ Genre = Genre.Art}
             };
 
             var BookCategories = new[]
             {
-                new BookCategory{ BookID=101, CategoryID=101}
+                new BookCategory{ BookID=1, CategoryID=1}
             };
 
             var Bundles = new[]
             {
-                new Bundle{ BundleID=101, Price=50},
+                new Bundle{ BundleID=1, Price=50},
             };
 
             var BookBundles = new[]
             {
-                new BookBundle{ BookID=101, BundleID=101},
-                new BookBundle { BookID=102, BundleID=101}
+                new BookBundle{ BookID=1, BundleID=1},
+                new BookBundle { BookID=2, BundleID=1}
             };
 
 

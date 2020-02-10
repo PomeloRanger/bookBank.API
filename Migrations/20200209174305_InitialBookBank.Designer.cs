@@ -10,8 +10,8 @@ using bookBank.API.Domain.Persistence.Contexts;
 namespace bookBank.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200209023932_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200209174305_InitialBookBank")]
+    partial class InitialBookBank
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,7 +38,7 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            AuthorID = 101,
+                            AuthorID = 1,
                             AuthorName = "Timothy"
                         });
                 });
@@ -75,23 +75,23 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BookID = 101,
-                            Description = "FBI Agent Atlee Pine's life was never the same after her twin sister Mercy was kidnapped--and likely killed--thirty years ago. After a lifetime of torturous uncertainty, Atlee's unresolved anger finally gets the better of her on the job, and she finds she has to deal with the demons of her past if she wants to remain with the FBI.",
-                            ISBN_10 = "1538761602",
-                            ISBN_13 = "978-1538761601",
-                            ImageUrl = "https://i.imgur.com/1mSWvvS.jpg",
+                            BookID = 1,
+                            Description = "Nine-year-old Meena can’t wait to grow up and break free from her parents. But, as the daughter of the only Punjabi family in the mining village of Tollington, her struggle for independence is different from most. Meena wants fishfingers and chips, not chapati and dhal; she wants an English Christmas, not the usual interminable Punjabi festivities – but more than anything, she wants to roam the backyards of working -class Tollington with feisty Anita Rutter and her gang.Blonde, cool, aloof, outrageous and sassy, Anita is everything Meena thinks she wants to be.Meena wheedles her way into Anita’s life, but the arrival of a baby brother, teenage hormones, impending entrance exams for the posh grammar school and a motorcycling rebel without a future threaten to turn Anita’s salad days sour. Anita and Me paints a comic, poignant, compassionate and colourful portrait of village life in the era of flares, power cuts, glam rock, decimalisation and Ted Heath. It is a unique vision of a British childhood in the Seventies, a childhood caught between two cultures, each on the brink of change.",
+                            ISBN_10 = "0006548768",
+                            ISBN_13 = "978-0006548768",
+                            ImageUrl = "https://i.imgur.com/RwxM72M.jpg",
                             Price = 14.98m,
-                            Title = "A Minute to Midnight (An Atlee Pine Thriller (2))"
+                            Title = "Anita and Me"
                         },
                         new
                         {
-                            BookID = 102,
-                            Description = "Reacher is on a Greyhound bus, minding his own business, with no particular place to go, and all the time in the world to get there. Then he steps off the bus to help an old man who is obviously just a victim waiting to happen. But you know what they say about good deeds. Now Reacher wants to make it right.",
-                            ISBN_10 = "0399593543",
-                            ISBN_13 = "978-0399593543",
-                            ImageUrl = "https://i.imgur.com/ELBaTAe.jpg",
+                            BookID = 2,
+                            Description = "When the enemy is one of your own, the payback is twice as hard. The Butler brothers are the Kings of the East End, and their motto is 'what goes around, comes around'. In their world, family counts; so when the truth about Vinny's nephew's death comes to light, it rocks the Butlers to the core. One by one, Vinny's friends and family are turning against him. Then, the unimaginable happens - Vinny's little daughter Molly goes missing. She's the one chink of light in all their lives, and the one they'd commit murders to bring back. But is it already too late for that?",
+                            ISBN_10 = "0007435053",
+                            ISBN_13 = "978-0007435053",
+                            ImageUrl = "https://i.imgur.com/0DK022r.jpg",
                             Price = 14.99m,
-                            Title = "Blue Moon: A Jack Reacher Novel"
+                            Title = "Payback"
                         });
                 });
 
@@ -112,13 +112,13 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BookID = 101,
-                            AuthorID = 101
+                            BookID = 1,
+                            AuthorID = 1
                         },
                         new
                         {
-                            BookID = 102,
-                            AuthorID = 101
+                            BookID = 2,
+                            AuthorID = 1
                         });
                 });
 
@@ -139,13 +139,13 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BookID = 101,
-                            BundleID = 101
+                            BookID = 1,
+                            BundleID = 1
                         },
                         new
                         {
-                            BookID = 102,
-                            BundleID = 101
+                            BookID = 2,
+                            BundleID = 1
                         });
                 });
 
@@ -166,8 +166,8 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BookID = 101,
-                            CategoryID = 101
+                            BookID = 1,
+                            CategoryID = 1
                         });
                 });
 
@@ -188,13 +188,13 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BookID = 101,
-                            PublisherID = 101
+                            BookID = 1,
+                            PublisherID = 1
                         },
                         new
                         {
-                            BookID = 102,
-                            PublisherID = 102
+                            BookID = 2,
+                            PublisherID = 2
                         });
                 });
 
@@ -215,7 +215,7 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            BundleID = 101,
+                            BundleID = 1,
                             Price = 50m
                         });
                 });
@@ -237,9 +237,48 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryID = 101,
+                            CategoryID = 1,
                             Genre = 3
                         });
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.Order", b =>
+                {
+                    b.Property<int>("OrderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.OrderDetails", b =>
+                {
+                    b.Property<int>("OrderDetailsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderDetailsID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("OrderID");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.Publisher", b =>
@@ -259,14 +298,39 @@ namespace bookBank.API.Migrations
                     b.HasData(
                         new
                         {
-                            PublisherID = 101,
+                            PublisherID = 1,
                             PublisherName = "Jerome"
                         },
                         new
                         {
-                            PublisherID = 102,
+                            PublisherID = 2,
                             PublisherName = "Timothy"
                         });
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReviewID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("bookBank.API.Domain.Models.User", b =>
@@ -358,6 +422,45 @@ namespace bookBank.API.Migrations
                     b.HasOne("bookBank.API.Domain.Models.Publisher", "Publisher")
                         .WithMany("BookPublishers")
                         .HasForeignKey("PublisherID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.Order", b =>
+                {
+                    b.HasOne("bookBank.API.Domain.Models.User", "User")
+                        .WithMany("Order")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.OrderDetails", b =>
+                {
+                    b.HasOne("bookBank.API.Domain.Models.Book", "Book")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bookBank.API.Domain.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("bookBank.API.Domain.Models.Review", b =>
+                {
+                    b.HasOne("bookBank.API.Domain.Models.Book", "Book")
+                        .WithMany("Review")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bookBank.API.Domain.Models.User", "User")
+                        .WithMany("Review")
+                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

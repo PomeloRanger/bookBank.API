@@ -10,5 +10,6 @@ namespace bookBank.API.Domain.Repositories
     public interface IBookRepository
     {
         Task<IEnumerable<Book>> ListAsync();
+        Task<Book> GetUserById(int id);
     }
 }

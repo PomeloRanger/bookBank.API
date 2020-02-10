@@ -1,4 +1,5 @@
-﻿using bookBank.API.Domain.Models;
+﻿using bookBank.API.Domain.Communication;
+using bookBank.API.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace bookBank.API.Domain.Services
     public interface IAuthorService
     {
         Task<IEnumerable<Author>> ListAsync();
+        Task<BooksResponse> GetBookByAuthor(int id);
     }
 }

@@ -91,6 +91,9 @@ namespace bookBank.API
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryServices, CategoryService>();
 
+            services.AddScoped<IAuthorRepository, AuthorRepository>();
+            services.AddScoped<IAuthorService, AuthorService>();
+
             services.AddScoped<IBundleRepository, BundleRepository>();
             services.AddScoped<IBundleService, BundleService>();
 

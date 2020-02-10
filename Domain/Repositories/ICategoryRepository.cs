@@ -9,5 +9,6 @@ namespace bookBank.API.Domain.Repositories
     public interface ICategoryRepository
     {
         Task<IEnumerable<Category>> ListAsync();
+        Task<IEnumerable<Book>> GetCategoryById(int id);
     }
 }

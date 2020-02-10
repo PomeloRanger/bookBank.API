@@ -16,6 +16,17 @@ namespace bookBank.API.Domain.Persistence.Repositories
 
         }
 
+        public async Task<Book> GetUserById(int id)
+        {
+            return await this.context.Books
+                .Include(b => b.BookPublishers)
+                    .ThenInclude(bp => bp.Publisher)
+                .Include(b => b.BookCategories)
+                    .ThenInclude(bc => bc.Category)
+                .Include(b => b.BookAuthors)
+                    .ThenInclude(ba => ba.Author).FirstOrDefaultAsync(i => i.BookID == id);
+        }
+
         public async Task<IEnumerable<Book>> ListAsync()
         {
             return await this.context.Books
@@ -23,6 +34,8 @@ namespace bookBank.API.Domain.Persistence.Repositories
                     .ThenInclude(bp => bp.Publisher)
                 .Include(b => b.BookCategories)
                     .ThenInclude(bc => bc.Category)
+                .Include(b => b.BookAuthors)
+                    .ThenInclude(ba => ba.Author)
                 .ToListAsync();
         }
     }

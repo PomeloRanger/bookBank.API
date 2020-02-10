@@ -1,5 +1,4 @@
 ﻿using bookBank.API.Domain.Models;
-using bookBank.API.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace bookBank.API.Domain.Communication
 {
-    public class AuthenticationResponse : BaseResponse
+    public class BooksResponse : BaseResponse
     {
-        public AuthUserResource User { get; private set; }
+        public IEnumerable<Book> Book { get; private set; }
 
-        public AuthenticationResponse(bool success, string message, AuthUserResource user) : base(success, message)
+        public BooksResponse(bool success, string message, IEnumerable<Book> book) : base(success, message)
         {
-            this.User = user;
+            this.Book = book;
         }
 
         /// <summary>
@@ -21,7 +20,7 @@ namespace bookBank.API.Domain.Communication
         /// </summary>
         /// <param name="Authenticate response"></param>
         /// <returns>Response.</returns>
-        public AuthenticationResponse(AuthUserResource user) : this(true, string.Empty, user)
+        public BooksResponse(IEnumerable<Book> book) : this(true, string.Empty, book)
         {
         }
 
@@ -30,7 +29,7 @@ namespace bookBank.API.Domain.Communication
         /// </summary>
         /// <param name="message">Error message.</param>
         /// <returns>Response.</returns>
-        public AuthenticationResponse(string message) : this(false, message, null)
+        public BooksResponse(string message) : this(false, message, null)
         {
         }
     }

@@ -23,6 +23,19 @@ namespace bookBank.API.Controllers
             this.mapper = mapper;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBookByAuthor(int id)
+        {
+            var result = await this.authorService.GetBookByAuthor(id);
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            //Mapped the value to autoMapped
+            var resources = this.mapper.Map<IEnumerable<Book>, IEnumerable<BookResource>>(result.Book);
+            return Ok(resources);
+        }
+
         [HttpGet]
         public async Task<IEnumerable<AuthorResource>> GetAllAsync()
         {
