@@ -1,4 +1,5 @@
-﻿using bookBank.API.Domain.Models;
+﻿using bookBank.API.Domain.Communication;
+using bookBank.API.Domain.Models;
 using bookBank.API.Domain.Repositories;
 using bookBank.API.Domain.Services;
 using System;
@@ -16,6 +17,17 @@ namespace bookBank.API.Services
         {
             this.authorRepository = authorRepository;
         }
+
+        public async Task<BooksResponse> GetBookByAuthor(int id)
+        {
+            var result = await this.authorRepository.GetBookByAuthor(id);
+            if (result == null)
+            {
+                return new BooksResponse("Can't find books by that Publisher ID");
+            }
+            return new BooksResponse(result);
+        }
+
         public async Task<IEnumerable<Author>> ListAsync()
         {
             return await this.authorRepository.ListAsync();

@@ -12,8 +12,10 @@ namespace bookBank.API.Resources
         public int BookID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
+
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         public string ISBN_10 { get; set; }
@@ -21,5 +23,6 @@ namespace bookBank.API.Resources
         public ICollection<PublisherResource> Publishers { get; set; }
         public ICollection<CategoryResource> Categories { get; set; }
         public ICollection<AuthorResource> Authors { get; set; }
+        public ICollection<ReviewResource> Review { get; set; }
     }
 }

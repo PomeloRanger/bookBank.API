@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using bookBank.API.Domain.Models;
-
 
 namespace bookBank.API.Domain.Repositories
 {
-    public interface IBookRepository
+    public interface IUnitOfWork
     {
-        Task<IEnumerable<Book>> ListAsync();
-        Task<Book> GetUserById(int id);
+        Task CompleteAsync();
     }
 }

@@ -9,5 +9,6 @@ namespace bookBank.API.Domain.Repositories
     public interface IAuthorRepository
     {
         Task<IEnumerable<Author>> ListAsync();
+        Task<IEnumerable<Book>> GetBookByAuthor(int id);
     }
 }

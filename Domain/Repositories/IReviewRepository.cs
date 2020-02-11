@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace bookBank.API.Domain.Repositories
 {
-    public interface ICategoryRepository
+    public interface IReviewRepository
     {
-        Task<IEnumerable<Category>> ListAsync();
-        Task<IEnumerable<Book>> GetCategoryById(int id);
+        Task<IEnumerable<Review>> GetReviewsByBook(int id);
     }
 }

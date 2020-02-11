@@ -13,7 +13,13 @@ https://localhost.com/Books$skip=500
 ## Endpoints
 Field | Description
 ------|------------
-`/Categories` | Returns the list of item categories
-`/Bundle` | Returns list of items that are currently discounted in a bundle
+`/Category` | Returns the list of item categories
+`/Category/{id}` | Return list of books that belongs to the CategoryID
+`/Bundle` | Returns array of books that are in a bundle
 `/Author` | Returns list of authors
-`/Books` | Return list of books
+`/Author/{id}` | Return list of books that belongs to the AuthorID
+`/Book` | Return list of books
+`/Book/{id}` | Return a single book
+`/Publisher` | Return list of publishers
+`/Publisher/{id}` | Return list of books that belongs to the PublisherID
+`/Review/{id}` | Return list of reviews that belongs to the BookID
