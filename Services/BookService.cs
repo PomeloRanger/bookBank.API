@@ -12,12 +12,10 @@ namespace bookBank.API.Services
     public class BookService : IBookService
     {
         private readonly IBookRepository bookRepository;
-        private readonly IUnitOfWork unitOfWork;
 
-        public BookService(IBookRepository bookRepository, IUnitOfWork unitOfWork)
+        public BookService(IBookRepository bookRepository)
         {
             this.bookRepository = bookRepository;
-            this.unitOfWork = unitOfWork;
         }
 
         public async Task<BookResponse> GetBookById(int id)

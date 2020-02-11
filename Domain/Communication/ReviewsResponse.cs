@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace bookBank.API.Domain.Communication
 {
-    public class BooksResponse : BaseResponse
+    public class ReviewsResponse : BaseResponse
     {
-        public IEnumerable<Book> Books { get; private set; }
-
-        public BooksResponse(bool success, string message, IEnumerable<Book> books) : base(success, message)
+        public IEnumerable<Review> Reviews { get; set; }
+        public ReviewsResponse(bool success, string message, IEnumerable<Review> reviews) : base(success, message)
         {
-            this.Books = books;
+            this.Reviews = reviews;
         }
 
         /// <summary>
         /// Creates a success response.
         /// </summary>
-        /// <param name="Books response"></param>
-        /// <returns>Books Response.</returns>
-        public BooksResponse(IEnumerable<Book> books) : this(true, string.Empty, books)
+        /// <param name="reviews"></param>
+        /// <returns>Reviews Response.</returns>
+        public ReviewsResponse(IEnumerable<Review> reviews) : this(true, string.Empty, reviews)
         {
         }
 
@@ -29,7 +28,7 @@ namespace bookBank.API.Domain.Communication
         /// </summary>
         /// <param name="message">Error message.</param>
         /// <returns>Response.</returns>
-        public BooksResponse(string message) : this(false, message, null)
+        public ReviewsResponse(string message) : this(false, message, null)
         {
         }
     }

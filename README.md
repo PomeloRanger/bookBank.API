@@ -22,3 +22,4 @@ Field | Description
 `/Book/{id}` | Return a single book
 `/Publisher` | Return list of publishers
 `/Publisher/{id}` | Return list of books that belongs to the PublisherID
+`/Review/{id}` | Return list of reviews that belongs to the BookID

@@ -32,7 +32,7 @@ namespace bookBank.API.Controllers
                 return BadRequest(result.Message);
             }
             //Mapped the value to autoMapped
-            var resources = this.mapper.Map<IEnumerable<Book>, IEnumerable<BookResource>>(result.Book);
+            var resources = this.mapper.Map<IEnumerable<Book>, IEnumerable<BookResource>>(result.Books);
             return Ok(resources);
         }
 
